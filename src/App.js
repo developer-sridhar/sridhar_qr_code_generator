@@ -24,7 +24,7 @@ function App() {
 
   const downloadQRCode = () => {
     if (qrCodeContainerRef.current) {
-      toPng(qrCodeContainerRef.current)
+      toPng(qrCodeContainerRef.current, { backgroundColor: 'white' })
         .then((dataUrl) => {
           const link = document.createElement('a');
           link.href = dataUrl;
@@ -38,13 +38,13 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-pink-500 to-orange-500">
-      <h1 className="text-5xl text-white shadow-md mb-8">QR Code Generator</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-orange-500">
+      <h1 className="text-5xl text-white shadow-md mb-8 p-5 ">QR Code Generator</h1>
       <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/3">
         <input
           type="text"
           className="w-full p-2 mb-4 border-2 border-gray-300 rounded-md focus:outline-none focus:border-orange-500"
-          placeholder="Enter text here..."
+          placeholder="Enter or Paste URL Here"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
@@ -58,13 +58,13 @@ function App() {
           <div className="flex flex-col items-center">
             <div
               ref={qrCodeContainerRef}
-              className="bg-white p-4 mt-4"
-              style={{ borderRadius: '10px'}}
+              className="bg-white p-10 mt-4"
+              style={{ backgroundColor: 'white', display: 'inline-block' }}
             >
               <img src={qrCodeUrl} alt="QR Code" className="mx-auto" />
             </div>
             <button
-              className="mt-4 bg-green-500 text-white py-2 px-4 rounded-md hover:shadow-lg transition"
+              className="mt-4 bg-green-500 text-white py-2 px-4 rounded hover:shadow-lg transition"
               onClick={downloadQRCode}
             >
               Download
@@ -76,7 +76,7 @@ function App() {
             Successfully Generated!!!
           </div>
         )}
-        <p className="mt-4 text-gray-500">Developed by Sridhar</p>
+        <p className="mt-4 text-gray-500 text-center">Developed By Sridhar</p>
       </div>
     </div>
   );
