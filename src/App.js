@@ -34,8 +34,6 @@ function App() {
       case 'email':
         if (emailInputValue.trim() && messageInputValue.trim()) {
           data = `mailto:${emailInputValue.trim()}?subject=QR%20Code%20Subject&body=${encodeURIComponent(messageInputValue.trim())}`;
-          // Open Gmail in a new tab with the email
-          window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailInputValue.trim())}&su=QR%20Code%20Subject&body=${encodeURIComponent(messageInputValue.trim())}`, '_blank');
         } else {
           alert('Please enter both email and message.');
           return;
