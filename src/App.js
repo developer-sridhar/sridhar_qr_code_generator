@@ -20,6 +20,7 @@ function App() {
 
   const generateQRCode = () => {
     let data;
+    let url;
 
     switch (selectedOption) {
       case 'phone':
@@ -33,6 +34,8 @@ function App() {
       case 'email':
         if (emailInputValue.trim() && messageInputValue.trim()) {
           data = `mailto:${emailInputValue.trim()}?subject=QR%20Code%20Subject&body=${encodeURIComponent(messageInputValue.trim())}`;
+          // Open Gmail in a new tab with the email
+          window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailInputValue.trim())}&su=QR%20Code%20Subject&body=${encodeURIComponent(messageInputValue.trim())}`, '_blank');
         } else {
           alert('Please enter both email and message.');
           return;
@@ -57,8 +60,8 @@ function App() {
         break;
     }
 
-    const URL = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(data)}`;
-    setQrCodeUrl(URL);
+    url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(data)}`;
+    setQrCodeUrl(url);
     showToast();
   };
 
