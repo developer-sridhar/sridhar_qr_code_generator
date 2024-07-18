@@ -199,7 +199,7 @@ function App() {
           </div>
         )}
         {toastVisible && (
-          <div className="fixed bottom-4 bg-green-500 text-white py-2 px-4 rounded shadow-lg transition-opacity duration-300">
+          <div className="fixed bottom-4 bg-green-500 text-white py-2 px-4 rounded shadow-lg transition-opacity duration-300">  
             Successfully Generated!!!
           </div>
         )}
