@@ -201,7 +201,9 @@ function App() {
             Successfully Generated!!!
           </div>
         )}
-        <p className="mt-4 text-gray-500 text-center">Developed By Sridhar</p>
+        <p className="mt-4 text-gray-500 text-center">
+          Developed By <a href="https://sridharsportfolio.vercel.app/" className="text-blue-500 hover:underline">Sridhar</a>
+        </p>
       </div>
     </div>
   );
